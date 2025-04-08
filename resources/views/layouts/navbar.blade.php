@@ -45,11 +45,7 @@
                                     href="{{ route('users.management') }}"><span>Users</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
-                                    href=""><span>Report</span>
-                                </a>
-                            </li>
+                          
                         </ul>
                     </li>
                     <li class="nav-item dropdown account u-pro">
