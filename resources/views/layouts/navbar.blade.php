@@ -23,13 +23,13 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
                             href="{{ route('dashboard') }}">
                             <span
-                                class="{{ Request::is('admin/dashboard') ? 'active' : 'not-active' }}
+                                class="{{ Request::is('admin/dashboard') ? 'active-nav' : 'not-active-nav' }}
 ">Dashboard</span></a>
                     </li>
                     <li class="nav-item dropdown account u-pro">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
                             href="{{ route('records.view') }}">
-                            <span class="{{ Request::is('admin/records') ? 'active' : 'not-active' }}
+                            <span class="{{ Request::is('admin/records') ? 'active-nav' : 'not-active-nav' }}
 ">Academic
                                 Records</span></a>
                     </li>
@@ -37,7 +37,7 @@
                     <li class="nav-item dropdown account u-pro">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
                             id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="{{ Request::is('admin/year') ? 'active' : 'not-active' }}
+                            <span class="{{ Request::is('admin/year') ? 'active-nav' : 'not-active-nav' }}
 ">Management</span></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
@@ -55,7 +55,7 @@
                     <li class="nav-item dropdown account u-pro">
                         <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
                             id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="{{ Request::is('admin/year') ? 'active' : 'not-active' }}
+                            <span class="{{ Request::is('admin/year') ? 'active-nav' : 'not-active-nav' }}
 ">Account</span></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
@@ -88,13 +88,13 @@
                         <li class="nav-item dropdown account u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
                                 href="{{ route('login.custom') }}">
-                                <span class="{{ Request::is('/') ? 'active' : 'not-active' }}
+                                <span class="{{ Request::is('/') ? 'active-nav' : 'not-active-nav' }}
 ">Login</span></a>
                         </li>
                         <li class="nav-item dropdown account u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
                                 href="{{ route('register.custom') }}">
-                                <span class="{{ Request::is('register') ? 'active' : 'not-active' }}
+                                <span class="{{ Request::is('register') ? 'active-nav' : 'not-active-nav' }}
 ">Register</span></a>
                         </li>
                     </ul>
