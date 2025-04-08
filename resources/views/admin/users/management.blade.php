@@ -1,0 +1,23 @@
+@extends('layouts.index')
+@section('content')
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="row hv-100 m-3">
+        <div class="col-xl-12 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <h4 class="card-title">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="m-0 font-weight-bold text-muted">USERS MANAGEMENT</h5>
+
+                        </div>
+                    </h4>
+                    @livewire('admin.user.management')
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
