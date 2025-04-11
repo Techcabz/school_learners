@@ -43,7 +43,7 @@
                                 <div class="tab-pane fade show active" id="container1" role="tabpanel"
                                     aria-labelledby="container1-tab">
                                     <div class="table-responsive">
-                                        <table id="table3" class="table table-bordered" width="100%">
+                                        <table id="datatable" class="table table-bordered" width="100%">
                                             <thead class="thead-custom text-white">
                                                 <tr>
                                                     <th>#</th>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="container2" role="tabpanel" aria-labelledby="container2-tab">
                                     <div class="table-responsive">
-                                        <table id="table" class="table table-bordered" width="100%">
+                                        <table id="datatable1" class="table table-bordered" width="100%">
                                             <thead class="thead-custom text-white">
                                                 <tr>
                                                     <th>#</th>

@@ -4,7 +4,6 @@
 Global Styles 
 *******************/
 @import '../scss/icons/font-awesome/css/font-awesome.min.css';
-@import '../css/spinners.css';
 @import '../css/animate.css';
 * {
   outline: none;

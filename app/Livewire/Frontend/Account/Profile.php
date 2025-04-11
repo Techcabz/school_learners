@@ -16,15 +16,13 @@ class Profile extends Component
 
     public function render()
     {
-        $departments = Department::orderBy('created_at', 'DESC')->get();
-        $positions = Position::orderBy('created_at', 'DESC')->get();
         $users = UserDetails::where('users_id', auth()->user()->id)->first();
 
         // If UserDetails for the current user doesn't exist, use User model
         if (!$users) {
             $users = auth()->user();
         }
-        return view('livewire.frontend.account.profile', compact('departments', 'positions', 'users'));
+        return view('livewire.frontend.account.profile', compact('users'));
     }
 
     public function saveUserdetails()
@@ -36,16 +34,9 @@ class Profile extends Component
                 'firstname' => 'required|string|min:2',
                 'lastname' => 'required|string|min:2',
                 'middlename' => 'nullable|string|min:2',
-                'address' => 'required|string|min:10',
-                'contact' => ['required', 'string', 'min:10', 'regex:/^(09|\+639)\d{9}$/'],
             ], [
-                'department_id.required' => 'The department field is required.',
-                'position_id.required' => 'The position field is required.',
                 'firstname.required' => 'The first name field is required.',
                 'lastname.required' => 'The last name field is required.',
-                'address.required' => 'Please enter your complete address.',
-                'contact.required' => 'The contact field is required.',
-                'contact.regex' => 'The contact number format is invalid. It should be either +639123456789 or 09123456789.',
             ]);
 
 
@@ -56,10 +47,6 @@ class Profile extends Component
                     'firstname' => $this->firstname,
                     'lastname' => $this->lastname,
                     'middlename' => $this->middlename,
-                    'department' => $this->department_id,
-                    'position' => $this->position_id,
-                    'contact' => $this->contact,
-                    'address' => $this->address,
                 ]);
             } else {
 
@@ -69,10 +56,6 @@ class Profile extends Component
                     'firstname' => $this->firstname,
                     'lastname' => $this->lastname,
                     'middlename' => $this->middlename,
-                    'department' => $this->department_id,
-                    'position' => $this->position_id,
-                    'contact' => $this->contact,
-                    'address' => $this->address,
                 ]);
                 User::where('id', auth()->user()->id)->update(['status' => 'completed']);
             }

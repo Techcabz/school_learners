@@ -1,9 +1,38 @@
-<form method="POST"  class="login" wire:submit.prevent="registerCustom">
+<form method="POST" class="login p-5" wire:submit.prevent="registerCustom" >
     @csrf
     <div class="mb-3">
-        <h2>Login</h2>
-      </div>
-      <p id="error_status"></p>
+        <h2 class="fw-bold">Register</h2>
+    </div>
+    <p id="error_status"></p>
+    <div class="row">
+        <div class="col">
+            <div class="mb-3">
+                <label for="firstname" class="col-md-12 col-form-label ">{{ __('Firstname') }}</label>
+                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror"
+                    wire:model="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+
+                @error('firstname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="lastname" class="col-md-12 col-form-label ">{{ __('Lastname') }}</label>
+                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror"
+                    wire:model="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+
+                @error('lastname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+    </div>
     <div class="mb-3">
         <label for="username" class="col-md-12 col-form-label ">{{ __('Username') }}</label>
         <input id="username" type="text" class="form-control @error('username') is-invalid @enderror"
@@ -45,14 +74,11 @@
             autocomplete="new-password">
 
     </div>
-    <div class="alert alert-warning">
-        <i class="fa fa-warning"></i>
 
-        <small>Upon completing the partial registration, please wait for the administrator's approval.
-            Thank You.</small>
+    <div class="mb-3">
+        <button type="submit" id="loginButton" data-loading-text="Registering..." class="btn btn-re w-100">
+            {{ __('Register') }}
+        </button>
     </div>
-
-    <button type="submit" class="btn btn-login-c">
-        {{ __('Register') }}
-    </button>
+<br>
 </form>

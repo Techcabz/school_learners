@@ -1,8 +1,8 @@
 @extends('layouts.index')
 
 @section('content')
-    <div class="wrapper">
-        <div class="container-fluid">
+    <div class="wrapper auth-section" style="margin-top: 5rem;">
+        <div class="container-fluid mt-5">
             <div class="card o-hidden transparent border-0 my-5"
                 style="background: inherit !important; margin-top: 10px !important">
                 <div class="card-body p-0">

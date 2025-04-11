@@ -12,12 +12,7 @@
 
 <script src="{{ asset('js/slider.js') }}"></script>
 <script src="{{ asset('js/alertify.min.js') }}"></script>
-<script type="module" src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/chart/memo-chart.js') }}"></script>
-<script src="{{ asset('js/chart/chart-area.js') }}"></script>
-<script src=" {{ asset('js/chart/chart-pie.js') }}"></script>
-<script src="{{ asset('js/datatables/dataTable.js') }}"></script>
-<script src="{{ asset('js/datatables/dataTable1.js') }}"></script>
+<script src="{{ asset('js/datatable/table.js') }}"></script>
 <script type="text/javascript">
     let jssor_1 = document.getElementById('jssor_1');
     if (jssor_1) {

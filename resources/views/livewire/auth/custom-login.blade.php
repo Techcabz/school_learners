@@ -1,4 +1,4 @@
-<form method="POST"  class="login" wire:submit.prevent="loginCustom">
+<form method="POST"  class="login p-4" wire:submit.prevent="loginCustom">
     @csrf
     <div class="mb-3">
         <h2 class="fw-bold">Login</h2>

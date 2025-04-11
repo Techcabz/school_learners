@@ -16,11 +16,8 @@ class UserDetails extends Model
         'users_id',
         'firstname',
         'lastname',
-        'middlename',
-        'department',
-        'position',
-        'address',
-        'contact',
+        'middlename'
+        
     ];
 
 
@@ -28,7 +25,4 @@ class UserDetails extends Model
     {
         return $this->belongsTo(User::class, 'users_id', 'id');
     }
-
-
-   
 }
