@@ -19,61 +19,110 @@
 
             <div class="navbar-collapse">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown account u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
-                            href="{{ route('dashboard') }}">
-                            <span
-                                class="{{ Request::is('admin/dashboard') ? 'active-nav' : 'not-active-nav' }}
+                    @if (auth()->check() && auth()->user()->role_as == 1)
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
+                                href="{{ route('dashboard') }}">
+                                <span
+                                    class="{{ Request::is('admin/dashboard') ? 'active-nav' : 'not-active-nav' }}
 ">Dashboard</span></a>
-                    </li>
-                    <li class="nav-item dropdown account u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
-                            href="{{ route('records.view') }}">
-                            <span class="{{ Request::is('admin/records') ? 'active-nav' : 'not-active-nav' }}
+                        </li>
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
+                                href="{{ route('records.view') }}">
+                                <span class="{{ Request::is('admin/records') ? 'active-nav' : 'not-active-nav' }}
 ">Academic
-                                Records</span></a>
-                    </li>
-
-                    <li class="nav-item dropdown account u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
-                            id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="{{ Request::is('admin/year') ? 'active-nav' : 'not-active-nav' }}
+                                    Records</span></a>
+                        </li>
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="{{ Request::is('admin/year') ? 'active-nav' : 'not-active-nav' }}
 ">Management</span></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
-                                    href="{{ route('users.management') }}"><span>Users</span>
-                                </a>
-                            </li>
-                          
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown account u-pro">
-                        <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
-                            id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="{{ Request::is('admin/year') ? 'active-nav' : 'not-active-nav' }}
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
+                                        href="{{ route('users.management') }}"><span>Users</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="{{ Request::is('admin/account') ? 'active-nav' : 'not-active-nav' }}
 ">Account</span></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
-                                    href=""><span>Profile</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
-                                    href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="btn disabled btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
+                                        href=""><span>Profile</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
+                                        href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><span>Logout</span>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </a>
 
 
 
-                            </li>
-                        </ul>
-                    </li>
+                                </li>
+                            </ul>
+                        </li>
+                    @else
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
+                                href="{{ route('dashboard.guest') }}">
+                                <span
+                                    class="{{ Request::is('teacher/dashboard') ? 'active-nav' : 'not-active-nav' }}
+">Dashboard</span></a>
+                        </li>
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
+                                href="{{ route('records.guest') }}">
+                                <span
+                                    class="{{ Request::is('teacher/records-guest') ? 'active-nav' : 'not-active-nav' }}
+">Academic
+                                    Records</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown account u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#"
+                                id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="{{ Request::is('admin/account') ? 'active-nav' : 'not-active-nav' }}
+">Account</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="btn disabled btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
+                                        href=""><span>Profile</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-sm btn-outline m-2 btn-drop waves-effect waves-dark"
+                                        href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"><span>Logout</span>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </a>
+
+
+
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
 
             @endauth
@@ -90,7 +139,8 @@
                         <li class="nav-item dropdown account u-pro">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic"
                                 href="{{ route('register.custom') }}">
-                                <span class="{{ Request::is('register') ? 'active-nav' : 'not-active-nav' }}
+                                <span
+                                    class="{{ Request::is('register') ? 'active-nav' : 'not-active-nav' }}
 ">Register</span></a>
                         </li>
                     </ul>

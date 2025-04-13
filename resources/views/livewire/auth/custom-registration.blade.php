@@ -76,7 +76,7 @@
     </div>
 
     <div class="mb-3">
-        <button type="submit" id="loginButton" data-loading-text="Registering..." class="btn btn-re w-100">
+        <button type="submit" id="loginButton" data-loading-text="Registering..." class="btn bg-custom-0 text-white w-100">
             {{ __('Register') }}
         </button>
     </div>

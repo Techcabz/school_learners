@@ -11,10 +11,14 @@ class CustomLoginController extends Controller
     public function index()
     {
         if (Auth::check()) {
-            return redirect()->route('home'); // Redirect to home page
+            $user = Auth::user();
+
+            if ($user->role_as == '1') {
+                return redirect()->route('dashboard'); // Admin dashboard
+            } else {
+                return redirect()->route('dashboard.guest'); // Non-admin dashboard
+            }
         }
         return view('auth.login');
     }
-
-
 }

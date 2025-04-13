@@ -49,7 +49,12 @@ Route::prefix('myaccount')->middleware(['auth'])->group(function () {
     Route::get('profile', [AccountController::class, 'profile'])->name('myaccount.profile');
 });
 
-Route::middleware(['auth'])->group(function () {});
+Route::prefix('teacher')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [FrontendController::class, 'index'])->name('dashboard.guest');
+    Route::get('/records-guest', [FrontendController::class, 'record'])->name('records.guest');
+    Route::get('/pdf_template', [FrontendController::class, 'pdfTemplate'])->name('pdf.guest');
+
+});
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');

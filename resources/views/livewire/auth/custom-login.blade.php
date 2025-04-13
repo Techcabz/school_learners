@@ -36,14 +36,14 @@
         </div>
         <div class="form-check">
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a class="btn btn-link text-dark" href="{{ route('password.request') }}">
                     <small> {{ __('Forgot Your Password?') }}</small>
                 </a>
             @endif
         </div>
     </div>
     <div class="mb-3">
-        <button type="submit" id="loginButton" data-loading-text="Logging in..." class="btn btn-re w-100">
+        <button type="submit" id="loginButton" data-loading-text="Logging in..." class="btn bg-custom-0 text-white w-100">
             Login
         </button>
     </div>

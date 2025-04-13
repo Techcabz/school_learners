@@ -41,7 +41,7 @@ class LoginController extends Controller
                         ->header('Expires', '0');
                 } else {
 
-                    return redirect('/')->with('status', 'Logged In Successfully')->header('Cache-Control', 'no-cache, no-store, must-revalidate')
+                    return redirect('teacher/dashboard')->with('status', 'Logged In Successfully')->header('Cache-Control', 'no-cache, no-store, must-revalidate')
                         ->header('Pragma', 'no-cache')
                         ->header('Expires', '0');
                 }

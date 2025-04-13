@@ -17,41 +17,6 @@
 
             <div class="order-box-contain my-4">
                 <div class="row g-4">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="order-box">
-                            <div class="order-box-image">
-                                <img src="{{ asset('assets_users/images/svg/sent.png') }} "
-                                    class="img-fluid blur-up lazyload" alt="">
-                            </div>
-                            <div class="order-box-contain">
-                                <img src="{{ asset('assets_users/images/svg/sent1.png') }}"
-                                    class="img-fluid blur-up lazyload" alt="">
-                                <div>
-                                    <h5 class="font-light">total reservation</h5>
-                                    <h3>{{ $reservTotal }}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="order-box">
-                            <div class="order-box-image">
-                                <img src="{{ asset('assets_users/images/svg/box.png') }}"
-                                    class="img-fluid blur-up lazyload" alt="">
-
-                            </div>
-                            <div class="order-box-contain">
-                                <img src="{{ asset('assets_users/images/svg/box1.png') }}"
-                                    class="img-fluid blur-up lazyload" alt="">
-
-                                <div>
-                                    <h5 class="font-light">cancelled reservation</h5>
-                                    <h3>{{ $reservPending }}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
 
                 </div>
