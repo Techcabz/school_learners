@@ -12,7 +12,7 @@
             <div class="modal-footer">
                 <button type="button" wire:click="closeModal" class="btn btn-secondary"
                     data-bs-dismiss="modal">No</button>
-                <button type="button" wire:click="userApproved" class="btn btn-info">
+                <button type="button" wire:click="userApproved" class="btn btn-info text-white">
 
                     <div wire:loading.remove>Approved</div>
                     <span wire:loading wire:target="userApproved">Approving...</span>

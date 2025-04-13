@@ -1,12 +1,10 @@
-
-
 <div wire:ignore.self class="modal fade" role="dialog" id="userDeleteModal" tabindex="-1"
     aria-labelledby="deleteCategoryModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog ">
 
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteCategoryModalLabel">Delete User?</h1>
+            <div class="modal-header bg-custom-0">
+                <h1 class="modal-title fs-5 text-white" id="deleteCategoryModalLabel">Delete User?</h1>
             </div>
             <div class="modal-body">
                 <h6 class="text-danger">Deleting this account will permanently remove the profile, personal settings,
@@ -37,8 +35,8 @@
     <div class="modal-dialog ">
         <form wire:submit.prevent="saveLogindetails">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="deleteCategoryModalLabel">Edit User?</h1>
+                <div class="modal-header bg-custom-0">
+                    <h1 class="modal-title fs-5 text-white" id="deleteCategoryModalLabel">Edit User?</h1>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -49,9 +47,33 @@
                         @enderror
 
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="firstname" class="form-label">Firstname <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" wire:model="firstname" class="form-control" id="firstname">
+                                @error('firstname')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">Lastname <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" wire:model="lastname" class="form-control" id="lastname">
+                                @error('lastname')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="mb-3">
                         <label for="firstname" class="form-label">Email</label>
-                        <input type="text" wire:model="email" class="form-control" id="email" >
+                        <input type="text" wire:model="email" class="form-control" id="email">
                         @error('email')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

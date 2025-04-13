@@ -1,6 +1,15 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script
+    src="https://cdn.datatables.net/v/bs4/jq-3.6.0/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/r-2.4.1/sc-2.1.1/sb-1.4.2/sl-1.6.2/datatables.min.js">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/he.min.js"></script>
+
+
+
 <script src="{{ asset('assets/node_modules/jssor.slider-28.1.0.min.js') }}"></script>
-<script src="{{ asset('assets/node_modules/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/node_modules/datatables/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/node_modules/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/node_modules/perfect-scrollbar.jquery.min.js') }}"></script>
 <script src="{{ asset('assets/node_modules/jquery.validate.js') }}"></script>
@@ -19,42 +28,6 @@
         jssor_1_slider_init();
     }
 </script>
-
-{{-- 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-<script
-    src="https://cdn.datatables.net/v/bs4/jq-3.6.0/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/r-2.4.1/sc-2.1.1/sb-1.4.2/sl-1.6.2/datatables.min.js">
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/he.min.js"></script>
-
-
-<script src="{{ asset('node_modules/jssor.slider-28.1.0.min.js') }}"></script>
-<script src="{{ asset('node_modules/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('node_modules/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('node_modules/perfect-scrollbar.jquery.min.js') }}"></script>
-<script src="{{ asset('node_modules/jquery.validate.js') }}"></script>
-<script src="{{ asset('node_modules/alertify.min.js') }}"></script>
-<script src="{{ asset('node_modules/jquery.redirect.js') }}"></script>
-<script src="{{ asset('js/slider.js') }}"></script>
-<script src="{{ asset('js/validation.js') }}"></script>
-<script src="{{ asset('js/datatable/table.js') }}"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script src="https://cdn.datatables.net/v/bs4/dt-2.0.5/datatables.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script> --}}
-
 <script>
     // Define the asset URL in a Blade section dada
     var tableScriptUrl = "{{ asset('js/datatable/table.js') }}";

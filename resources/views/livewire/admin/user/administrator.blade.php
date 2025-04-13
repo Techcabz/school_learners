@@ -5,9 +5,9 @@
             background: #3F8E4E !important;
         }
     </style>
-    @include('livewire.admin.user.managementModal')
+    @include('livewire.admin.user.adminModal')
     <div class="table-responsive">
-        <table id="datatable2" class="table table-bordered" width="100%">
+        <table id="datatable3" class="table table-bordered" width="100%">
             <thead class="thead-custom text-white">
                 <tr>
                     <th>#</th>
@@ -43,12 +43,12 @@
                                         <div class="d-flex align-items-center gap-3">
                                             <button data-bs-toggle="modal"
                                                 wire:click="editLoginDetails({{ $list->id }})"
-                                                data-bs-target="#userEditModal" type="button"
+                                                data-bs-target="#adminEditModal" type="button"
                                                 class="btn btn-sm btn-success">
                                                 Edit
                                             </button>
                                             <button data-bs-toggle="modal" wire:click="userID({{ $list->id }})"
-                                                data-bs-target="#userDeleteModal" type="button"
+                                                data-bs-target="#adminDeleteModal" type="button"
                                                 class="btn btn-sm btn-danger">
                                                 Delete
                                             </button>

@@ -50,12 +50,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function userDetails()
     {
-        return $this->hasMany(UserDetails::class, 'users_id', 'id');
+        return $this->hasOne(UserDetails::class, 'users_id', 'id');
     }
 
     public function routeNotificationFor()
     {
         return $this->email;
     }
-
 }

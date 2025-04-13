@@ -3,32 +3,29 @@
 namespace App\Livewire\Admin\User;
 
 use App\Models\User;
-use Livewire\Component;
-use App\Models\UserDetails;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Component;
 
-class Management extends Component
+class Administrator extends Component
 {
-    public  $id, $username, $email, $firstname, $lastname, $password, $old_password;
+    public  $id, $username, $email, $password, $old_password;
 
     public function render()
     {
-        $usersList = User::where('role_as', '0')->where('user_status', '0')->get();
+        $currentUserId = Auth::id();
+        // ->where('id', '!=', $currentUserId) 
 
-        return view('livewire.admin.user.management', compact('usersList'));
+        $usersList = User::where('role_as', '1')
+            ->where('user_status', '0')
+            ->get();
+
+        return view('livewire.admin.user.administrator', compact('usersList'));
     }
 
     public function userID($id)
     {
         $this->id = $id;
-    }
-
-    public function userDelete()
-    {
-        $user = User::findOrFail($this->id);
-        $user->delete();
-
-        $this->dispatch('saveModal', status: 'error', position: 'top', message: 'Delete user successfully');
     }
 
     public function editLoginDetails(int $id)
@@ -39,17 +36,33 @@ class Management extends Component
             $this->id = $users->id;
             $this->username = $users->username;
             $this->email = $users->email;
-            $this->firstname = $users->userDetails->firstname;
-            $this->lastname = $users->userDetails->lastname;
-           
+
             $this->dispatch('editModal');
         }
     }
 
+    public function userDelete()
+    {
+        $user = User::findOrFail($this->id);
+        if ($user->role_as == 1) {
+            $adminCount = User::where('role_as', 1)->where('user_status', 0)->count();
+
+            if ($adminCount <= 1) {
+                $this->dispatch('destroyModal', status: 'error', position: 'top', message: 'Cannot delete the only remaining admin.');
+                return;
+            }
+        }
+
+        $user->delete();
+
+        $this->dispatch('saveModal', status: 'warning', position: 'top', message: 'User deleted successfully.');
+    }
+
+
     public function saveLogindetails()
     {
         $user = User::findOrFail($this->id);
-    
+
         $this->validate([
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
@@ -60,30 +73,21 @@ class Management extends Component
                         $fail('The old password is incorrect.');
                     }
                 }
-            }],
-            'firstname' => ['required', 'string', 'max:255'],
-            'lastname' => ['required', 'string', 'max:255'],
+            }]
         ]);
-    
+
         // Update User table
         $user->update([
             'username' => $this->username,
             'email' => $this->email,
             'password' => empty($this->password) ? $user->password : Hash::make($this->password),
         ]);
-    
-        // Update or create related UserDetails
-        UserDetails::updateOrCreate(
-            ['users_id' => $user->id], // match condition
-            [ // values to update or insert
-                'firstname' => $this->firstname,
-                'lastname' => $this->lastname,
-            ]
-        );
-    
+
+
+
         $this->dispatch('saveModal', status: 'success', position: 'top', message: 'Information updated successfully');
     }
-    
+
 
     public function closeModal()
     {
